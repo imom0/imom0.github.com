@@ -6,17 +6,9 @@
 Welcome to Thoughts of iMom0's documentation!
 =============================================
 
-Contents:
+2013:
 
 .. toctree::
    :maxdepth: 2
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   2013/dark-cornors-of-django-auto-now-add
