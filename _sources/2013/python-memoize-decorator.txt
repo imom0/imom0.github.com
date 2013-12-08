@@ -2,6 +2,9 @@
 Python Memoize Decorator
 ========================
 
+*created at: 2013-10-11 23:32*
+
+
 `A comparison between node.js and python <http://stackoverflow.com/questions/19308835/why-python-is-much-slower-than-node-js-on-recursion/19308975#19308975>`_, measures the time of running recursive fibonacci functions, the former is much faster than the latter, which may be the cause of v8 engine::
 
     def memoize(f):

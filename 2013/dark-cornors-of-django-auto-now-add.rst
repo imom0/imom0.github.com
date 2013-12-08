@@ -1,6 +1,8 @@
 =====================================
-Dark cornors of Django's auto_now_add
+Dark Cornors of Django's Auto_now_add
 =====================================
+
+*created at: 2013-08-25 03:41*
 
 
 There is a model declaration in one of our existing projects::
