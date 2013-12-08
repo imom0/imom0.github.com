@@ -12,3 +12,4 @@ Welcome to Thoughts of iMom0's documentation!
    :maxdepth: 2
 
    2013/dark-cornors-of-django-auto-now-add
+   2013/python-memoize-decorator
