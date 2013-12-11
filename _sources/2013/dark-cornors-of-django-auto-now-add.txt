@@ -13,10 +13,10 @@ There is a model declaration in one of our existing projects::
 
 We use *auto_now_add* for specifying the created time automatically.When the Event model is used more and more, sometimes we have scenarios that *created_at* is not equal to the created time of model instance::
 
-    event = Event(name='new event')
+    >>> event = Event(name='new event')
     # today is 2013-08-24
-    event.created_at = datetime.datetime(2013, 8, 10)
-    event.save()
+    >>> event.created_at = datetime.datetime(2013, 8, 10)
+    >>> event.save()
     >>> event.created_at
     datetime.datetime(2013, 8, 24, 14, 10, 11, 181193)
 
@@ -27,8 +27,8 @@ It's not expected, but the django docs explain the `rule <https://docs.djangopro
 
 When you want set the datetime to what you want, just save again::
 
-    event.created_at = datetime.datetime(2013, 8, 10)
-    event.save()
+    >>> event.created_at = datetime.datetime(2013, 8, 10)
+    >>> event.save()
 
 Then I add a field default value to replace *auto_now_add*::
 
