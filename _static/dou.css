@@ -107,3 +107,6 @@ ul {
   padding: 5px 0;
   border-top: 1px dashed #ddd;
 }
+.footer {
+  display: inline-block;
+}
