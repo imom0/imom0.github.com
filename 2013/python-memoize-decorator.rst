@@ -2,6 +2,8 @@
 Python Memoize Decorator
 ========================
 
+.. sectionauthor:: momo <mobeiheart@gmail.com>
+
 *created at: 2013-10-11 23:32*
 
 

@@ -2,6 +2,8 @@
 Dark Cornors of Django's Auto_now_add
 =====================================
 
+.. sectionauthor:: momo <mobeiheart@gmail.com>
+
 *created at: 2013-08-25 03:41*
 
 
