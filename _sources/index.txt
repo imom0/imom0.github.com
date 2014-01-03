@@ -6,6 +6,14 @@
 Welcome to Thoughts of iMom0's!
 ===============================
 
+2014:
+
+.. toctree::
+   :maxdepth: 2
+
+   2014/any-optimization-from-practice-is-much-harder
+
+
 2013:
 
 .. toctree::
