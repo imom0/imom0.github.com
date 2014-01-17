@@ -95,9 +95,9 @@
 </pre></div>
 </div>
 <p>I used this quick and not dirty way.Then users felt the speed improvement on the dashboard page.</p>
-<p>But you entered every category list page, still slow.Mysql explain showed category query type is <em>all</em>, the worst possible type. The query contains two where conditions and an order. I tried <strong>add index</strong> to one of where condition, type became <em>range</em>.After I add indices to other fields, it became <em>ref</em>, which can be accepted.</p>
+<p>But you entered every category list page, still slow.Mysql explain showed category query type was <em>all</em>, the worst possible type. The query contained two where conditions and an order. I tried <strong>add index</strong> to one of where conditions, type became <em>range</em>.After I added indices to other fields, it became <em>ref</em>, which can be accepted.</p>
 <p>At that time, average request cost was 1000ms.</p>
-<p>Thanks to the app engine team, by adding <em>app_engine_profile=true</em> to every URL we can easily get the detail for profiling.I tried, <em>gzip</em> were called 60000 times and cost 400ms in production environment, but other projects did not show this abnormal gzip calls.With the hint of my menter, I looked into the application entry point.</p>
+<p>Thanks to the app engine team, by adding <em>app_engine_profile=true</em> to every URL we can easily get the metrics for profiling.I tried, <em>gzip</em> were called 60000 times and cost 400ms in production environment, but other projects did not show this abnormal gzip calls.With the hint of my menter, I looked into the application entry point.</p>
 <p>When I totally commented the gzip middleware, request time declined from 120ms to 20ms in development environment.It was convinced that some hot spots related to gzip, then I noticed the application&#8217;s return value:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Publisher</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 
@@ -106,7 +106,7 @@
         <span class="k">return</span> <span class="n">body</span> <span class="c"># Iterable object.</span>
 </pre></div>
 </div>
-<p>Wow, every body knows it&#8217;s an iterable object and <strong>every article about WSGI will tell you not send the output one byte by one byte</strong>, but the developers <strong>still did this</strong>.It caused gzip is applied to every single byte.Changing it to <em>return [body]</em> or <em>yield body</em> solved this problem.</p>
+<p>Wow, everybody knows it&#8217;s an iterable object and <strong>every article about WSGI will tell you not send the output one byte by one byte</strong>, but the developers <strong>still did this</strong>.It caused gzip is applied to every single byte.Changing it to <em>return [body]</em> or <em>yield body</em> solved this problem.</p>
 <p>This aftermoon, when I deployed the modified code to staging, the production environment raised a lot of exceptions caused by mako cache.I checked, the project saved mako cache to mfs and the two environments used the same mako cache.After solved this bug, the speed may be a little improvement, because mfs is a distributed network file system.</p>
 <p>In the end, the project performance had a considerable improvement, but still a lot of work to do.</p>
 </div>
