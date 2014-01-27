@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -76,6 +75,8 @@
             
   <div class="section" id="any-optimization-from-practice-is-much-harder">
 <h1>Any Optimization from Practice Is Much Harder<a class="headerlink" href="#any-optimization-from-practice-is-much-harder" title="Permalink to this headline">¶</a></h1>
+<p><em>Section author: momo &lt;<a class="reference external" href="mailto:mobeiheart&#37;&#52;&#48;gmail&#46;com">mobeiheart<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</em></p>
+<p><em>created at: 2014-01-15 21:24</em></p>
 <p>We adopted an orphan python web project this week, it was maintained by lots of developers once.The former maintainers haven&#8217;t stopped the bad smell in the project.Now it has serious performance problems, opening a page will cost several seconds (usually 3~5s, how terrible), users complain about it, we have to face the problem and solve it.</p>
 <p>My mentor noticed there were several <em>SELECT COUNT</em> s on the dashboard page.It was meaningless to make it such real-time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
@@ -161,7 +162,7 @@
 		
     <div class="footer">
         &copy; Copyright 2013, iMom0.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
     </div>
 		<div class="footer">
 		  With <a href="https://github.com/imom0/dou-sphinx-theme" target="_blank">Dou theme</a>.
