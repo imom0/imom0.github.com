@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Thoughts of iMom0's!
+Welcome to Thoughts of iMom0!
 ===============================
 
 2014:
