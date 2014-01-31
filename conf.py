@@ -27,7 +27,7 @@ sys.path.append(os.path.abspath('_themes'))
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.mathjax']
+extensions = ['sphinx.ext.mathjax', 'sphinxcontrib.newsfeed']
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
@@ -243,3 +243,5 @@ texinfo_documents = [
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #texinfo_show_urls = 'footnote'
+
+disqus_shortname = 'imomo'

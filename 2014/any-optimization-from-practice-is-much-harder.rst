@@ -4,8 +4,8 @@ Any Optimization from Practice Is Much Harder
 
 .. sectionauthor:: momo <mobeiheart@gmail.com>
 
-*created at: 2014-01-15 21:24*
-
+.. feed-entry::
+   :date: 2014-01-15
 
 We adopted an orphan python web project this week, it was maintained by lots of developers once.The former maintainers haven't stopped the bad smell in the project.Now it has serious performance problems, opening a page will cost several seconds (usually 3~5s, how terrible), users complain about it, we have to face the problem and solve it.
 

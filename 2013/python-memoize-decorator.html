@@ -73,7 +73,7 @@
   <div class="section" id="python-memoize-decorator">
 <h1>Python Memoize Decorator<a class="headerlink" href="#python-memoize-decorator" title="Permalink to this headline">¶</a></h1>
 <p><em>Section author: momo &lt;<a class="reference external" href="mailto:mobeiheart&#37;&#52;&#48;gmail&#46;com">mobeiheart<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</em></p>
-<p><em>created at: 2013-10-11 23:32</em></p>
+<p class="feed-meta">Published on <em class="feed-date">2013-10-11</em></p>
 <p><a class="reference external" href="http://stackoverflow.com/questions/19308835/why-python-is-much-slower-than-node-js-on-recursion/19308975#19308975">A comparison between node.js and python</a>, measures the time of running recursive fibonacci functions, the former is much faster than the latter, which may be the cause of v8 engine:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">memoize</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="n">cache</span> <span class="o">=</span> <span class="p">{}</span>
@@ -143,7 +143,22 @@
 </div>
 <p>The definition of <tt class="docutils literal"><span class="pre">__get__</span></tt> lets <tt class="docutils literal"><span class="pre">f.get_result(*args)</span></tt> be equal to <tt class="docutils literal"><span class="pre">f.memoized_get_result.__call__(f.memoized_get_result,</span> <span class="pre">*args)</span></tt> and makes it possible to decorate instance methods.</p>
 </div>
+<div class="feed-disqus">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = "imomo";
+var disqus_identifier = "/2013/python-memoize-decorator";
+var disqus_title = "Python Memoize Decorator";
 
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
 
           </div>
         </div>

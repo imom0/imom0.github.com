@@ -4,8 +4,8 @@ Dark Cornors of Django's Auto_now_add
 
 .. sectionauthor:: momo <mobeiheart@gmail.com>
 
-*created at: 2013-08-25 03:41*
-
+.. feed-entry::
+   :date: 2013-08-25
 
 There is a model declaration in one of our existing projects::
 

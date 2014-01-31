@@ -76,7 +76,7 @@
   <div class="section" id="any-optimization-from-practice-is-much-harder">
 <h1>Any Optimization from Practice Is Much Harder<a class="headerlink" href="#any-optimization-from-practice-is-much-harder" title="Permalink to this headline">¶</a></h1>
 <p><em>Section author: momo &lt;<a class="reference external" href="mailto:mobeiheart&#37;&#52;&#48;gmail&#46;com">mobeiheart<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</em></p>
-<p><em>created at: 2014-01-15 21:24</em></p>
+<p class="feed-meta">Published on <em class="feed-date">2014-01-15</em></p>
 <p>We adopted an orphan python web project this week, it was maintained by lots of developers once.The former maintainers haven&#8217;t stopped the bad smell in the project.Now it has serious performance problems, opening a page will cost several seconds (usually 3~5s, how terrible), users complain about it, we have to face the problem and solve it.</p>
 <p>My mentor noticed there were several <em>SELECT COUNT</em> s on the dashboard page.It was meaningless to make it such real-time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Car</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
@@ -111,7 +111,22 @@
 <p>This aftermoon, when I deployed the modified code to staging, the production environment raised a lot of exceptions caused by mako cache.I checked, the project saved mako cache to mfs and the two environments used the same mako cache.After solved this bug, the speed may be a little improvement, because mfs is a distributed network file system.</p>
 <p>In the end, the project performance had a considerable improvement, but still a lot of work to do.</p>
 </div>
+<div class="feed-disqus">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = "imomo";
+var disqus_identifier = "/2014/any-optimization-from-practice-is-much-harder";
+var disqus_title = "Any Optimization from Practice Is Much Harder";
 
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
 
           </div>
         </div>
