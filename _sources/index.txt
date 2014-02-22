@@ -12,6 +12,7 @@ Welcome to Thoughts of iMom0!
    :maxdepth: 2
 
    2014/any-optimization-from-practice-is-much-harder
+   2014/more-efficient-way-for-handling-hierarchical-structure-in-relational-database
 
 
 2013:
