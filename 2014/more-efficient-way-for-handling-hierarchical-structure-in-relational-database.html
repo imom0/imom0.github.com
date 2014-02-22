@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>More Efficient Way for Handling Hierarchical Structure in Relational Database &mdash; Thoughts of iMom0</title>
+    
+    <link rel="stylesheet" href="../_static/dou.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Thoughts of iMom0" href="../index.html" /> 
+  </head>
+  <body>
+  
+  <div class="header-wrapper">
+	<div class="wrapper clearfix">
+	  <div class="header">
+		<div class="pageheader">
+		  <a href="../index.html">Thoughts of iMom0</a>
+		  
+		</div>
+		<div class="search pull-right">
+		  
+		  
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+		  
+		</div>
+	  </div>
+	</div>
+  </div>
+
+
+  <div class="wrapper clearfix">
+	<div id="content">
+	  <div class="article pull-left">
+		
+		
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="more-efficient-way-for-handling-hierarchical-structure-in-relational-database">
+<h1>More Efficient Way for Handling Hierarchical Structure in Relational Database<a class="headerlink" href="#more-efficient-way-for-handling-hierarchical-structure-in-relational-database" title="Permalink to this headline">¶</a></h1>
+<p><em>Section author: momo &lt;<a class="reference external" href="mailto:mobeiheart&#37;&#52;&#48;gmail&#46;com">mobeiheart<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</em></p>
+<p class="feed-meta">Published on <em class="feed-date">2014-02-23</em></p>
+<p>When developing an employee management system, a common and typical problem is finding all subordinates of somebody, direct and indirect.It can be done using recursive way:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">expand_subordinates</span><span class="p">(</span><span class="n">employee</span><span class="p">):</span>
+    <span class="n">direct_subordinates</span> <span class="o">=</span> <span class="n">Employee</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">superior</span><span class="o">=</span><span class="n">employee</span><span class="p">)</span>
+    <span class="n">indirect_subordinates</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">subordinate</span> <span class="ow">in</span> <span class="n">direct_subordinates</span><span class="p">:</span>
+        <span class="n">direct</span><span class="p">,</span> <span class="n">indirect</span> <span class="o">=</span> <span class="n">expand_subordinates</span><span class="p">(</span><span class="n">subordinate</span><span class="p">)</span>
+        <span class="n">indirect_subordinates</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">direct</span><span class="p">)</span>
+        <span class="n">indirect_subordinates</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">indirect</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">direct_subordinates</span><span class="p">,</span> <span class="n">indirect_subordinates</span>
+</pre></div>
+</div>
+<p>It must be slow in relational database, the higher level the employee is in, the slower the query is.</p>
+<p>But there are efficient way of handling this hierarchical data structure, the well-known <a class="reference external" href="https://github.com/django-mptt/django-mptt">Django mptt</a> and others like <a class="reference external" href="http://sqlamp.angri.ru/">sqlamp</a>  or <a class="reference external" href="https://bitbucket.org/zzzeek/sqlalchemy/src/ceaa6047ef8bc3916ffdda1924844cbf233dfd94/examples/nested_sets/nested_sets.py">sqlalchemy nested set example</a>.They add additional two fields to implement modified preorder tree traversal.</p>
+</div>
+<div class="feed-disqus">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = "imomo";
+var disqus_identifier = "/2014/more-efficient-way-for-handling-hierarchical-structure-in-relational-database";
+var disqus_title = "More Efficient Way for Handling Hierarchical Structure in Relational Database";
+
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+          </div>
+        </div>
+      </div>
+		
+	  </div>
+	  <div class="aside pull-right">
+		
+		
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">Thoughts of iMom0
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/2014/more-efficient-way-for-handling-hierarchical-structure-in-relational-database.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+		  
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+		  
+        </div>
+      </div>
+		
+	  </div>
+	</div>
+  </div>
+
+  <div class="wrapper">
+	<div class="footer-wrapper">
+	  <div>
+		
+    <div class="footer">
+        &copy; Copyright 2013, iMom0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+		<div class="footer">
+		  With <a href="https://github.com/imom0/dou-sphinx-theme" target="_blank">Dou theme</a>.
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  </body>
+</html>
