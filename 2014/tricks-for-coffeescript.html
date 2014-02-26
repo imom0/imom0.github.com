@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tricks for CoffeeScript &mdash; Thoughts of iMom0</title>
+    
+    <link rel="stylesheet" href="../_static/dou.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="Thoughts of iMom0" href="../index.html" />
+    <link rel="next" title="Dark Cornors of Django’s Auto_now_add" href="../2013/dark-cornors-of-django-auto-now-add.html" />
+    <link rel="prev" title="More Efficient Way for Handling Hierarchical Structure in Relational Database" href="more-efficient-way-for-handling-hierarchical-structure-in-relational-database.html" /> 
+  </head>
+  <body>
+  
+  <div class="header-wrapper">
+	<div class="wrapper clearfix">
+	  <div class="header">
+		<div class="pageheader">
+		  <a href="../index.html">Thoughts of iMom0</a>
+		  
+		  <a href="more-efficient-way-for-handling-hierarchical-structure-in-relational-database.html" title="More Efficient Way for Handling Hierarchical Structure in Relational Database" accesskey="P">previous</a>
+		  
+		  <a href="../2013/dark-cornors-of-django-auto-now-add.html" title="Dark Cornors of Django’s Auto_now_add" accesskey="N">next</a>
+		  
+		</div>
+		<div class="search pull-right">
+		  
+		  
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+		  
+		</div>
+	  </div>
+	</div>
+  </div>
+
+
+  <div class="wrapper clearfix">
+	<div id="content">
+	  <div class="article pull-left">
+		
+		
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="tricks-for-coffeescript">
+<h1>Tricks for CoffeeScript<a class="headerlink" href="#tricks-for-coffeescript" title="Permalink to this headline">¶</a></h1>
+<p><em>Section author: momo &lt;<a class="reference external" href="mailto:mobeiheart&#37;&#52;&#48;gmail&#46;com">mobeiheart<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</em></p>
+<p class="feed-meta">Published on <em class="feed-date">2014-02-26</em></p>
+<p>1.字符串反转:</p>
+<div class="highlight-python"><div class="highlight"><pre>str = &quot;hello&quot;
+(s for s in str by -1).join(&#39;&#39;)
+</pre></div>
+</div>
+<p>2.遍历Object，注意是 <cite>of</cite> ，习惯容易写错成 <cite>in</cite></p>
+<div class="highlight-python"><div class="highlight"><pre>&quot;#{key} = #{value}&quot; for key, value of {&#39;a&#39;: &#39;b&#39;, &#39;c&#39;: &#39;d&#39;}
+</pre></div>
+</div>
+<p>3.除后取整，注意 <cite>//</cite> 的写法在 1.7.0 版本才添加:</p>
+<div class="highlight-python"><div class="highlight"><pre>(new Date(2014, 1, 2).getTime() - new Date(2014, 1, 1).getTime()) // 1000
+Math.floor((new Date(2014, 1, 2).getTime() - new Date(2014, 1, 1).getTime() / 1000)
+</pre></div>
+</div>
+</div>
+<div class="feed-disqus">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = "imomo";
+var disqus_identifier = "/2014/tricks-for-coffeescript";
+var disqus_title = "Tricks for CoffeeScript";
+
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+          </div>
+        </div>
+      </div>
+		
+	  </div>
+	  <div class="aside pull-right">
+		
+		
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">Thoughts of iMom0
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="more-efficient-way-for-handling-hierarchical-structure-in-relational-database.html"
+                        title="previous chapter">More Efficient Way for Handling Hierarchical Structure in Relational Database</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../2013/dark-cornors-of-django-auto-now-add.html"
+                        title="next chapter">Dark Cornors of Django&#8217;s Auto_now_add</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/2014/tricks-for-coffeescript.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+		  
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+		  
+        </div>
+      </div>
+		
+	  </div>
+	</div>
+  </div>
+
+  <div class="wrapper">
+	<div class="footer-wrapper">
+	  <div>
+		
+    <div class="footer">
+        &copy; Copyright 2013, iMom0.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+		<div class="footer">
+		  With <a href="https://github.com/imom0/dou-sphinx-theme" target="_blank">Dou theme</a>.
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  </body>
+</html>

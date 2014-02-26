@@ -13,6 +13,7 @@ Welcome to Thoughts of iMom0!
 
    2014/any-optimization-from-practice-is-much-harder
    2014/more-efficient-way-for-handling-hierarchical-structure-in-relational-database
+   2014/tricks-for-coffeescript
 
 
 2013:
