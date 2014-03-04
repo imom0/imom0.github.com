@@ -22,3 +22,8 @@ Tricks for CoffeeScript
     Math.floor((new Date(2014, 1, 2).getTime() - new Date(2014, 1, 1).getTime() / 1000)
 
 4.coffee repl中切到多行输入： `C-V`
+
+5.assign property的语法糖::
+
+    class Animal
+      constructor: (@name) ->
