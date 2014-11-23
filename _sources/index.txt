@@ -15,6 +15,7 @@ Welcome to Thoughts of iMom0!
    2014/more-efficient-way-for-handling-hierarchical-structure-in-relational-database
    2014/tricks-for-coffeescript
    2014/从svn到git
+   2014/scala-workshop
 
 
 2013:
